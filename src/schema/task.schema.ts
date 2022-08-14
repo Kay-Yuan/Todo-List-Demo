@@ -1,5 +1,6 @@
-const Joi = require("joi");
-const joiMiddleware = require("../middlewares/joiMiddleware");
+import Joi from "joi";
+
+import joiMiddleware from "../middlewares/joiMiddleware";
 
 const createTaskSchema = Joi.object().keys({
   body: {
@@ -44,7 +45,7 @@ const getAllTasksSchema = Joi.object().keys({
   },
 });
 
-module.exports = {
+export default {
   createTaskSchema: joiMiddleware(createTaskSchema),
   getTaskSchema: joiMiddleware(getTaskSchema),
   getAllTasksSchema: joiMiddleware(getAllTasksSchema),

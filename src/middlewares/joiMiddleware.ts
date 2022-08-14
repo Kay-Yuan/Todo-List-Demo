@@ -1,5 +1,7 @@
-const joiMiddleware = (schema) =>
-  function (req, res, next) {
+import { Response, Request, NextFunction } from "express";
+
+const joiMiddleware = (schema: any) =>
+  function (req: Request, res: Response, next: NextFunction) {
     const { error, value } = schema.validate(req, { allowUnknown: true });
 
     if (error) {
@@ -15,4 +17,5 @@ const joiMiddleware = (schema) =>
     next();
   };
 
-module.exports = joiMiddleware;
+// module.exports = joiMiddleware;
+export = joiMiddleware;
